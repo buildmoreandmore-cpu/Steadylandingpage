@@ -61,7 +61,6 @@ const SignupModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpe
 const LandingPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'personal' | 'business'>('personal');
   const [isSignupOpen, setIsSignupOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -103,22 +102,8 @@ const LandingPage: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="flex items-center gap-4">
-            <button onClick={() => setIsSignupOpen(true)} className="hidden sm:block bg-steady-teal text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-steady-teal/20 hover:scale-105 transition-all">Join Waitlist</button>
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden w-10 h-10 flex items-center justify-center text-steady-charcoal">
-              <iconify-icon icon={isMobileMenuOpen ? "solar:close-circle-bold" : "solar:hamburger-menu-bold"} width="24"></iconify-icon>
-            </button>
-          </div>
+          <button onClick={() => setIsSignupOpen(true)} className="bg-steady-teal text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl font-black text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] shadow-xl shadow-steady-teal/20 hover:scale-105 transition-all">Join Waitlist</button>
         </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-6 space-y-4">
-            <button onClick={() => { scrollTo('features'); setIsMobileMenuOpen(false); }} className="block w-full text-left text-sm font-black uppercase tracking-widest text-gray-600 py-3">Features</button>
-            <button onClick={() => { scrollTo('scout'); setIsMobileMenuOpen(false); }} className="block w-full text-left text-sm font-black uppercase tracking-widest text-gray-600 py-3">Scout</button>
-            <button onClick={() => { setIsSignupOpen(true); setIsMobileMenuOpen(false); }} className="w-full bg-steady-teal text-white py-4 rounded-2xl font-black text-xs uppercase tracking-[0.2em] mt-4">Join Waitlist</button>
-          </div>
-        )}
       </nav>
 
       {/* Hero Section */}

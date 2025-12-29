@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 interface PageLayoutProps {
@@ -6,8 +6,6 @@ interface PageLayoutProps {
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-steady-bg text-steady-charcoal">
       {/* Navigation */}
@@ -23,22 +21,8 @@ const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
               <Link to="/#scout" className="text-xs font-black uppercase tracking-widest text-gray-400 hover:text-steady-teal transition-colors">Scout</Link>
             </div>
           </div>
-          <div className="flex items-center gap-4">
-            <Link to="/" className="hidden sm:block bg-steady-teal text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-steady-teal/20 hover:scale-105 transition-all">Join Waitlist</Link>
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden w-10 h-10 flex items-center justify-center text-steady-charcoal">
-              <iconify-icon icon={isMobileMenuOpen ? "solar:close-circle-bold" : "solar:hamburger-menu-bold"} width="24"></iconify-icon>
-            </button>
-          </div>
+          <Link to="/" className="bg-steady-teal text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl font-black text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] shadow-xl shadow-steady-teal/20 hover:scale-105 transition-all">Join Waitlist</Link>
         </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-6 space-y-4">
-            <Link to="/#features" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-left text-sm font-black uppercase tracking-widest text-gray-600 py-3">Features</Link>
-            <Link to="/#scout" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-left text-sm font-black uppercase tracking-widest text-gray-600 py-3">Scout</Link>
-            <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="block w-full bg-steady-teal text-white py-4 rounded-2xl font-black text-xs uppercase tracking-[0.2em] text-center mt-4">Join Waitlist</Link>
-          </div>
-        )}
       </nav>
 
       {/* Page Content */}
