@@ -69,10 +69,8 @@ const LandingPage: React.FC = () => {
       <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
           <div className="flex items-center gap-10">
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <div className="w-10 h-10 bg-steady-teal rounded-xl flex items-center justify-center text-white">
-                <iconify-icon icon="solar:shield-check-bold-duotone" width="28"></iconify-icon>
-              </div>
+            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+              <img src="/logo.svg" alt="Steady" className="h-10 w-auto" />
               <span className="text-2xl font-black uppercase tracking-tighter">Steady</span>
             </button>
             <div className="hidden lg:flex gap-8">
@@ -491,12 +489,10 @@ const LandingPage: React.FC = () => {
             <div className="space-y-10">
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-steady-teal rounded-xl flex items-center justify-center text-white shadow-lg shadow-steady-teal/20">
-                    <iconify-icon icon="solar:shield-check-bold-duotone" width="24"></iconify-icon>
-                  </div>
+                  <img src="/logo.svg" alt="Steady" className="h-12 w-auto" />
                   <span className="text-3xl font-black uppercase tracking-tighter text-steady-charcoal">Steady</span>
                 </div>
-                <p className="text-sm text-gray-400 font-bold uppercase tracking-widest leading-relaxed">Built for control.</p>
+                <p className="text-sm text-gray-400 font-bold uppercase tracking-widest leading-relaxed">Money for the Control Freaks.</p>
               </div>
               
               <div className="flex gap-6">

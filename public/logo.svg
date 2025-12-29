@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" fill="none">
+  <!-- Bar chart bars -->
+  <rect x="20" y="60" width="24" height="80" rx="4" fill="#0D7377"/>
+  <rect x="52" y="30" width="24" height="110" rx="4" fill="#0D7377"/>
+  <rect x="88" y="10" width="24" height="130" rx="4" fill="#0D7377"/>
+  <rect x="124" y="40" width="24" height="100" rx="4" fill="#0D7377"/>
+  <rect x="156" y="70" width="24" height="70" rx="4" fill="#0D7377"/>
+
+  <!-- Horizontal line through bars -->
+  <rect x="10" y="75" width="180" height="6" rx="3" fill="#14B8A6"/>
+
+  <!-- Padlock body -->
+  <rect x="75" y="85" width="50" height="45" rx="8" fill="#14B8A6"/>
+
+  <!-- Padlock shackle -->
+  <path d="M85 85 L85 70 Q85 55 100 55 Q115 55 115 70 L115 85" stroke="#14B8A6" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+  <!-- Keyhole -->
+  <circle cx="100" cy="102" r="6" fill="#0D7377"/>
+  <rect x="97" y="102" width="6" height="12" rx="2" fill="#0D7377"/>
+</svg>
