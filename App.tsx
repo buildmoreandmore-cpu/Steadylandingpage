@@ -193,7 +193,7 @@ const LandingPage: React.FC = () => {
                  <div className="h-10 bg-steady-bg flex justify-center items-end pb-1">
                     <div className="w-32 h-6 bg-steady-charcoal rounded-b-3xl"></div>
                  </div>
-                 <div className="h-full overflow-y-auto no-scrollbar p-6 space-y-8">
+                 <div className="h-full overflow-y-auto no-scrollbar p-3 sm:p-4 md:p-6 space-y-4 sm:space-y-6 md:space-y-8">
                     <Today 
                       snapshot={activeTab === 'personal' ? MOCK_SNAPSHOT : { ...MOCK_SNAPSHOT, netWorth: 124500 }} 
                       dailyAction={{id:'1', title:'Optimize Energy Bills', description:'Scout found a way to save $42/mo on your electricity.', cta:'Save Now'}} 

@@ -17,92 +17,90 @@ const LogoMap: Record<string, string> = {
 
 const Today: React.FC<TodayProps> = ({ snapshot, dailyAction, recentFlow }) => {
   return (
-    <div className="space-y-10">
-      {/* Snapshot Hero - Clean Minimal Style */}
-      <div className="bg-steady-charcoal text-white p-6 rounded-3xl relative overflow-hidden">
-        <div className="flex items-center justify-between mb-6">
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-50">Net Worth</p>
-          <div className="flex items-center gap-1.5 bg-steady-success/20 text-steady-success px-2.5 py-1 rounded-full">
-            <iconify-icon icon="solar:arrow-up-bold" width="12"></iconify-icon>
-            <span className="text-[10px] font-bold">+${snapshot.monthlyChange.toLocaleString()}</span>
+    <div className="space-y-4">
+      {/* Snapshot Hero - Compact */}
+      <div className="bg-steady-charcoal text-white p-4 rounded-2xl">
+        <div className="flex items-center justify-between mb-3">
+          <p className="text-[9px] font-bold uppercase tracking-wider opacity-50">Net Worth</p>
+          <div className="flex items-center gap-1 bg-steady-success/20 text-steady-success px-2 py-0.5 rounded-full">
+            <iconify-icon icon="solar:arrow-up-bold" width="10"></iconify-icon>
+            <span className="text-[9px] font-bold">+${snapshot.monthlyChange.toLocaleString()}</span>
           </div>
         </div>
-        <div className="flex items-baseline gap-1">
-          <span className="text-2xl font-medium text-white/40">$</span>
-          <span className="text-4xl font-black tracking-tight">{snapshot.netWorth.toLocaleString()}</span>
+        <div className="flex items-baseline gap-0.5">
+          <span className="text-lg font-medium text-white/40">$</span>
+          <span className="text-2xl font-black tracking-tight">{snapshot.netWorth.toLocaleString()}</span>
         </div>
-        <p className="text-[10px] font-medium text-white/30 mt-2">Updated {snapshot.lastUpdated}</p>
       </div>
 
-      {/* Scout's Pick - Prominent Feature Card */}
+      {/* Scout's Pick - Compact */}
       {dailyAction && (
-        <section>
-           <h3 className="text-xs font-black uppercase tracking-[0.2em] text-gray-400 mb-4">Scout's Pick</h3>
-           <div className="bg-white p-8 rounded-4xl shadow-sm border border-gray-50 flex flex-col gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-steady-teal/5 flex items-center justify-center text-steady-teal">
-                <iconify-icon icon="solar:star-fall-bold-duotone" width="32"></iconify-icon>
-              </div>
-              <div>
-                <h4 className="text-2xl font-black text-steady-charcoal mb-2 leading-tight">{dailyAction.title}</h4>
-                <p className="text-sm text-gray-500 font-medium leading-relaxed">{dailyAction.description}</p>
-              </div>
-              <div className="flex gap-2 pt-2">
-                <button className="flex-1 bg-steady-teal text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:opacity-90 transition-opacity shadow-lg shadow-steady-teal/20">
-                  {dailyAction.cta}
-                </button>
-                <button className="px-6 py-4 text-steady-charcoal/40 font-black text-xs uppercase tracking-widest hover:text-steady-charcoal transition-colors">
-                  Later
-                </button>
-              </div>
-           </div>
-        </section>
+        <div className="bg-white p-4 rounded-2xl border border-gray-100">
+          <div className="flex items-start gap-3 mb-3">
+            <div className="w-8 h-8 rounded-xl bg-steady-teal/10 flex items-center justify-center text-steady-teal shrink-0">
+              <iconify-icon icon="solar:star-fall-bold-duotone" width="18"></iconify-icon>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-[9px] font-bold uppercase tracking-wider text-gray-400 mb-1">Scout's Pick</p>
+              <h4 className="text-sm font-black text-steady-charcoal leading-tight">{dailyAction.title}</h4>
+            </div>
+          </div>
+          <p className="text-[11px] text-gray-500 font-medium leading-relaxed mb-3">{dailyAction.description}</p>
+          <div className="flex gap-2">
+            <button className="flex-1 bg-steady-teal text-white py-2.5 rounded-xl font-bold text-[10px] uppercase tracking-wider">
+              {dailyAction.cta}
+            </button>
+            <button className="px-4 py-2.5 text-gray-400 font-bold text-[10px] uppercase tracking-wider">
+              Later
+            </button>
+          </div>
+        </div>
       )}
 
-      {/* Recent Flow - Clean Monotone List */}
-      <section>
-        <div className="flex justify-between items-end mb-6">
-          <h3 className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">Recent Flow</h3>
-          <button className="text-steady-teal text-xs font-black uppercase tracking-widest hover:translate-x-1 transition-transform">See all →</button>
+      {/* Recent Flow - Compact */}
+      <div>
+        <div className="flex justify-between items-center mb-3">
+          <p className="text-[9px] font-bold uppercase tracking-wider text-gray-400">Recent</p>
+          <button className="text-steady-teal text-[9px] font-bold uppercase tracking-wider">See all</button>
         </div>
-        <div className="space-y-3">
-          {recentFlow.map((tx) => (
-            <div key={tx.id} className="bg-white p-5 rounded-3xl border border-gray-50 flex justify-between items-center group cursor-pointer hover:border-steady-teal/10 transition-colors">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center overflow-hidden">
-                  <iconify-icon 
-                    icon={LogoMap[tx.description] || 'solar:wallet-money-bold-duotone'} 
-                    width="24"
+        <div className="space-y-2">
+          {recentFlow.slice(0, 3).map((tx) => (
+            <div key={tx.id} className="bg-white p-3 rounded-xl border border-gray-100 flex justify-between items-center">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center">
+                  <iconify-icon
+                    icon={LogoMap[tx.description] || 'solar:wallet-money-bold-duotone'}
+                    width="16"
                     className="monotone-logo"
                   ></iconify-icon>
                 </div>
                 <div>
-                  <p className="text-sm font-black text-steady-charcoal">{tx.description}</p>
-                  <p className="text-[10px] text-gray-400 font-black uppercase tracking-widest">{tx.category}</p>
+                  <p className="text-[11px] font-bold text-steady-charcoal">{tx.description}</p>
+                  <p className="text-[9px] text-gray-400 font-medium uppercase">{tx.category}</p>
                 </div>
               </div>
-              <p className={`text-base font-black tracking-tighter ${tx.amount < 0 ? 'text-steady-charcoal' : 'text-steady-success'}`}>
+              <p className={`text-[11px] font-bold ${tx.amount < 0 ? 'text-steady-charcoal' : 'text-steady-success'}`}>
                 {tx.amount < 0 ? `-$${Math.abs(tx.amount).toLocaleString()}` : `+$${tx.amount.toLocaleString()}`}
               </p>
             </div>
           ))}
         </div>
-      </section>
+      </div>
 
-      {/* Scout Summary Card */}
-      <div className="bg-steady-teal text-white p-8 rounded-4xl relative overflow-hidden">
-        <iconify-icon icon="solar:notes-bold-duotone" width="80" className="absolute -bottom-4 -right-4 opacity-10"></iconify-icon>
-        <h4 className="text-xl font-black uppercase tracking-tighter mb-6 leading-none">Weekly Note</h4>
-        <ul className="space-y-5">
+      {/* Weekly Note - Compact */}
+      <div className="bg-steady-teal text-white p-4 rounded-2xl">
+        <h4 className="text-[11px] font-black uppercase tracking-wider mb-3 opacity-80">Weekly Note</h4>
+        <ul className="space-y-2.5">
           {[
-            "You made 3 decisions (nice momentum)",
-            "$847 moved toward your goals",
-            "Insurance renews in 12 days"
+            "3 decisions made",
+            "$847 toward goals",
+            "Insurance renews soon"
           ].map((note, idx) => (
-            <li key={idx} className="flex gap-4 items-start">
-              <div className="w-6 h-6 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
-                <iconify-icon icon="solar:check-read-bold-duotone" width="14"></iconify-icon>
+            <li key={idx} className="flex gap-2.5 items-center">
+              <div className="w-5 h-5 rounded-md bg-white/10 flex items-center justify-center shrink-0">
+                <iconify-icon icon="solar:check-read-bold-duotone" width="12"></iconify-icon>
               </div>
-              <span className="text-sm font-bold opacity-90 leading-tight">{note}</span>
+              <span className="text-[11px] font-medium opacity-90">{note}</span>
             </li>
           ))}
         </ul>
