@@ -77,7 +77,7 @@ const LandingPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-steady-bg text-steady-charcoal selection:bg-steady-teal selection:text-white">
+    <div className="min-h-screen bg-steady-bg text-steady-charcoal selection:bg-steady-teal selection:text-white overflow-x-hidden">
       <SignupModal isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)} />
 
       {/* Navigation */}
@@ -201,10 +201,10 @@ const LandingPage: React.FC = () => {
                     />
                  </div>
               </div>
-              <div className="absolute -left-32 top-20 w-80 animate-float pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+              <div className="hidden xl:block absolute -left-32 top-20 w-80 animate-float pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
                 <Decide />
               </div>
-              <div className="absolute -right-32 bottom-20 w-80 animate-float pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000" style={{ animationDelay: '2s' }}>
+              <div className="hidden xl:block absolute -right-32 bottom-20 w-80 animate-float pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000" style={{ animationDelay: '2s' }}>
                 <Manage />
               </div>
             </div>
@@ -381,14 +381,53 @@ const LandingPage: React.FC = () => {
                </div>
             </div>
 
-            <div className="md:col-span-8 bg-gradient-to-br from-white to-gray-50 rounded-5xl p-12 border border-gray-100 flex flex-col lg:flex-row items-center gap-12 group shadow-[0_10px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-all duration-500 relative overflow-hidden">
-               <div className="space-y-6 text-center lg:text-left flex-1 relative z-10">
+            <div className="md:col-span-8 bg-gradient-to-br from-white to-gray-50 rounded-3xl sm:rounded-5xl p-6 sm:p-12 border border-gray-100 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 group shadow-[0_10px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] transition-all duration-500 relative overflow-hidden">
+               <div className="space-y-4 sm:space-y-6 text-center lg:text-left flex-1 relative z-10">
                   <div className="inline-flex px-4 py-1.5 rounded-full bg-steady-coral/10 text-steady-coral text-[10px] font-black uppercase tracking-widest mb-2">Switching Focus</div>
-                  <h3 className="text-4xl font-black uppercase tracking-tighter leading-[0.9] text-steady-charcoal">Profiles for everyone</h3>
-                  <p className="text-lg font-medium text-steady-charcoal/60 leading-relaxed max-w-sm">Switch between Personal, Business, and Family. All your snapshots roll up into one master dashboard.</p>
+                  <h3 className="text-2xl sm:text-4xl font-black uppercase tracking-tighter leading-[0.9] text-steady-charcoal">Profiles for everyone</h3>
+                  <p className="text-base sm:text-lg font-medium text-steady-charcoal/60 leading-relaxed max-w-sm">Switch between Personal, Business, and Family. All your snapshots roll up into one master dashboard.</p>
                </div>
 
-               <div className="relative h-[280px] w-full max-w-[320px] lg:max-w-none flex-1 perspective-1000 mt-10 lg:mt-0">
+               {/* Mobile: Stacked cards */}
+               <div className="flex lg:hidden flex-col gap-4 w-full">
+                  <div className="w-full bg-steady-charcoal rounded-2xl p-5 text-white flex justify-between items-center">
+                     <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                           <iconify-icon icon="solar:user-bold" width="16"></iconify-icon>
+                        </div>
+                        <div>
+                           <p className="text-[10px] font-black uppercase tracking-widest opacity-60">Personal</p>
+                           <p className="text-lg font-black text-steady-teal">$46,800</p>
+                        </div>
+                     </div>
+                     <iconify-icon icon="solar:shield-check-bold" width="20" className="text-steady-teal"></iconify-icon>
+                  </div>
+                  <div className="w-full bg-steady-teal rounded-2xl p-5 text-white flex justify-between items-center">
+                     <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                           <iconify-icon icon="solar:case-round-bold" width="16"></iconify-icon>
+                        </div>
+                        <div>
+                           <p className="text-[10px] font-black uppercase tracking-widest opacity-60">Business</p>
+                           <p className="text-lg font-black">$24,900</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div className="w-full bg-white rounded-2xl p-5 border border-steady-coral/20 flex justify-between items-center">
+                     <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-steady-coral/10 flex items-center justify-center">
+                           <iconify-icon icon="solar:users-group-rounded-bold" width="16" className="text-steady-coral"></iconify-icon>
+                        </div>
+                        <div>
+                           <p className="text-[10px] font-black uppercase tracking-widest text-steady-coral">Family</p>
+                           <p className="text-lg font-black text-steady-charcoal">$8,450</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               {/* Desktop: Stacked perspective cards */}
+               <div className="hidden lg:block relative h-[280px] w-full max-w-none flex-1 perspective-1000">
                   <div className="absolute top-10 right-4 w-60 h-40 bg-white rounded-3xl border border-steady-coral/20 shadow-xl rotate-[10deg] translate-x-4 opacity-40 group-hover:rotate-[8deg] transition-all duration-700 p-6 flex flex-col justify-between">
                      <div className="flex justify-between items-start">
                         <p className="text-[10px] font-black uppercase tracking-widest text-steady-coral">Family</p>
