@@ -28,15 +28,15 @@ const SignupModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpe
         </button>
         <div className="space-y-8">
           <div className="space-y-4 text-center md:text-left">
-            <h2 className="text-4xl font-black uppercase tracking-tighter leading-none">Ready to take<br/>control?</h2>
-            <p className="text-gray-500 font-medium">Join 45,000+ people who stopped tracking and started deciding.</p>
+            <h2 className="text-4xl font-black uppercase tracking-tighter leading-none">Get early<br/>access</h2>
+            <p className="text-gray-500 font-medium">Be the first to know when Steady launches. Join the waitlist for exclusive early access.</p>
           </div>
           <div className="space-y-4">
             <input type="email" placeholder="EMAIL ADDRESS" className="w-full bg-gray-50 border-2 border-gray-100 focus:border-steady-teal px-8 py-5 rounded-3xl font-black text-xs tracking-widest outline-none transition-all" />
-            <button className="w-full bg-steady-teal text-white py-6 rounded-3xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-steady-teal/20 hover:scale-[1.02] active:scale-95 transition-all">Start 14-Day Free Trial</button>
+            <button className="w-full bg-steady-teal text-white py-6 rounded-3xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-steady-teal/20 hover:scale-[1.02] active:scale-95 transition-all">Join the Waitlist</button>
           </div>
           <p className="text-[10px] text-center text-gray-400 font-black uppercase tracking-widest leading-relaxed">
-            No credit card required. Cancel anytime.
+            Free to use. We'll notify you at launch.
           </p>
         </div>
       </div>
@@ -78,7 +78,6 @@ const LandingPage: React.FC = () => {
             <div className="hidden lg:flex gap-8">
               {[
                 { name: 'Features', id: 'features' },
-                { name: 'Pricing', id: 'pricing' },
                 { name: 'Scout', id: 'scout' }
               ].map(item => (
                 <button 
@@ -92,8 +91,7 @@ const LandingPage: React.FC = () => {
             </div>
           </div>
           <div className="flex items-center gap-6">
-            <button className="text-xs font-black uppercase tracking-widest text-steady-charcoal hover:opacity-70">Log in</button>
-            <button onClick={() => setIsSignupOpen(true)} className="bg-steady-teal text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-steady-teal/20 hover:scale-105 transition-all">Get Started</button>
+            <button onClick={() => setIsSignupOpen(true)} className="bg-steady-teal text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-steady-teal/20 hover:scale-105 transition-all">Join Waitlist</button>
           </div>
         </div>
       </nav>
@@ -133,8 +131,8 @@ const LandingPage: React.FC = () => {
           </p>
 
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 pt-4">
-            <button onClick={() => setIsSignupOpen(true)} className="w-full md:w-auto bg-steady-teal text-white px-14 py-7 rounded-[2rem] font-black text-sm uppercase tracking-[0.2em] shadow-2xl shadow-steady-teal/30 hover:scale-105 transition-all">Get Started Free</button>
-            <button onClick={() => scrollTo('pricing')} className="w-full md:w-auto bg-white text-steady-charcoal px-14 py-7 rounded-[2rem] font-black text-sm uppercase tracking-[0.2em] border border-gray-100 hover:bg-gray-50">Compare Plans</button>
+            <button onClick={() => setIsSignupOpen(true)} className="w-full md:w-auto bg-steady-teal text-white px-14 py-7 rounded-[2rem] font-black text-sm uppercase tracking-[0.2em] shadow-2xl shadow-steady-teal/30 hover:scale-105 transition-all">Join Waitlist</button>
+            <button onClick={() => scrollTo('features')} className="w-full md:w-auto bg-white text-steady-charcoal px-14 py-7 rounded-[2rem] font-black text-sm uppercase tracking-[0.2em] border border-gray-100 hover:bg-gray-50">See Features</button>
           </div>
         </div>
       </section>
@@ -296,7 +294,7 @@ const LandingPage: React.FC = () => {
                <div className="relative z-10 max-w-sm space-y-6">
                   <h3 className="text-4xl font-black uppercase tracking-tighter leading-tight">Intent-based budgeting</h3>
                   <p className="text-lg opacity-80 font-medium leading-relaxed">Forget strict category limits. Steady focuses on your intent: Fixed, Strategic, or Lifestyle. Adjust your sliders and watch your future unfold.</p>
-                  <button onClick={() => scrollTo('pricing')} className="bg-white text-steady-teal px-10 py-5 rounded-2xl font-black text-xs uppercase tracking-widest hover:scale-105 transition-transform shadow-xl">Start Planning</button>
+                  <button onClick={() => setIsSignupOpen(true)} className="bg-white text-steady-teal px-10 py-5 rounded-2xl font-black text-xs uppercase tracking-widest hover:scale-105 transition-transform shadow-xl">Get Early Access</button>
                </div>
                
                <div className="absolute right-0 bottom-0 md:top-12 md:bottom-auto w-[340px] bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-l-[3rem] shadow-2xl translate-x-12 group-hover:translate-x-4 transition-transform duration-700 hidden md:block">
@@ -454,7 +452,7 @@ const LandingPage: React.FC = () => {
                   onClick={() => setIsSignupOpen(true)}
                   className="w-full bg-steady-teal text-white py-6 rounded-2xl font-black text-sm uppercase tracking-[0.3em] shadow-2xl shadow-steady-teal/30 hover:shadow-steady-teal/50 transition-all group-hover:scale-[1.02]"
                 >
-                  Get Started
+                  Join Waitlist
                 </button>
               </div>
             </div>
@@ -515,7 +513,7 @@ const LandingPage: React.FC = () => {
             </div>
 
             {[
-              { title: 'Product', links: ['Features', 'Pricing', 'Scout', 'Security'] },
+              { title: 'Product', links: ['Features', 'Scout', 'Security'] },
               { title: 'Company', links: ['About', 'Careers', 'News', 'Contact'] },
               { title: 'Legal', links: ['Privacy', 'Terms', 'Cookie Policy', 'Licenses'] }
             ].map(col => (
