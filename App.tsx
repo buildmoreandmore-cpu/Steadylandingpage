@@ -82,7 +82,7 @@ const LandingPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
           <div className="flex items-center gap-10">
             <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <img src="/logo.svg" alt="Steady" className="h-10 w-auto" />
+              <img src="/logo.png" alt="Steady" className="h-10 w-auto rounded-lg" />
               <span className="text-2xl font-black uppercase tracking-tighter">Steady</span>
             </button>
             <div className="hidden lg:flex gap-8">
@@ -501,7 +501,7 @@ const LandingPage: React.FC = () => {
             <div className="space-y-10">
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <img src="/logo.svg" alt="Steady" className="h-12 w-auto" />
+                  <img src="/logo.png" alt="Steady" className="h-12 w-auto rounded-xl" />
                   <span className="text-3xl font-black uppercase tracking-tighter text-steady-charcoal">Steady</span>
                 </div>
                 <p className="text-sm text-gray-400 font-bold uppercase tracking-widest leading-relaxed">Money for the Control Freaks.</p>
