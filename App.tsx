@@ -1,9 +1,21 @@
 
 import React, { useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import Today from './components/Today';
 import Decide from './components/Decide';
 import Manage from './components/Manage';
 import { SnapshotData, Transaction } from './types';
+
+// Page imports
+import Security from './pages/Security';
+import About from './pages/About';
+import Careers from './pages/Careers';
+import News from './pages/News';
+import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import CookiePolicy from './pages/CookiePolicy';
+import Licenses from './pages/Licenses';
 
 const MOCK_SNAPSHOT: SnapshotData = {
   netWorth: 46800,
@@ -508,20 +520,34 @@ const LandingPage: React.FC = () => {
               </div>
             </div>
 
-            {[
-              { title: 'Product', links: ['Features', 'Scout', 'Security'] },
-              { title: 'Company', links: ['About', 'Careers', 'News', 'Contact'] },
-              { title: 'Legal', links: ['Privacy', 'Terms', 'Cookie Policy', 'Licenses'] }
-            ].map(col => (
-              <div key={col.title} className="space-y-8">
-                <h4 className="text-xs font-black uppercase tracking-[0.3em] text-steady-charcoal">{col.title}</h4>
-                <div className="flex flex-col gap-5">
-                  {col.links.map(link => (
-                    <button key={link} className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">{link}</button>
-                  ))}
-                </div>
+            <div className="space-y-8">
+              <h4 className="text-xs font-black uppercase tracking-[0.3em] text-steady-charcoal">Product</h4>
+              <div className="flex flex-col gap-5">
+                <button onClick={() => scrollTo('features')} className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Features</button>
+                <button onClick={() => scrollTo('scout')} className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Scout</button>
+                <Link to="/security" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Security</Link>
               </div>
-            ))}
+            </div>
+
+            <div className="space-y-8">
+              <h4 className="text-xs font-black uppercase tracking-[0.3em] text-steady-charcoal">Company</h4>
+              <div className="flex flex-col gap-5">
+                <Link to="/about" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">About</Link>
+                <Link to="/careers" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Careers</Link>
+                <Link to="/news" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">News</Link>
+                <Link to="/contact" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Contact</Link>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <h4 className="text-xs font-black uppercase tracking-[0.3em] text-steady-charcoal">Legal</h4>
+              <div className="flex flex-col gap-5">
+                <Link to="/privacy" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Privacy</Link>
+                <Link to="/terms" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Terms</Link>
+                <Link to="/cookie-policy" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Cookie Policy</Link>
+                <Link to="/licenses" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Licenses</Link>
+              </div>
+            </div>
           </div>
 
           {/* BOTTOM COPYRIGHT & TRUST */}
@@ -548,7 +574,20 @@ const LandingPage: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  return <LandingPage />;
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/security" element={<Security />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/careers" element={<Careers />} />
+      <Route path="/news" element={<News />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="/terms" element={<Terms />} />
+      <Route path="/cookie-policy" element={<CookiePolicy />} />
+      <Route path="/licenses" element={<Licenses />} />
+    </Routes>
+  );
 };
 
 export default App;
