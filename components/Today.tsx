@@ -18,21 +18,20 @@ const LogoMap: Record<string, string> = {
 const Today: React.FC<TodayProps> = ({ snapshot, dailyAction, recentFlow }) => {
   return (
     <div className="space-y-10">
-      {/* Snapshot Hero - High Impact Wise Style */}
-      <div className="bg-steady-charcoal text-white p-8 rounded-4xl shadow-2xl relative overflow-hidden group">
-        <div className="absolute -right-10 -top-10 w-40 h-40 bg-steady-teal/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-        <p className="text-xs font-black uppercase tracking-[0.2em] opacity-40 mb-4">Your Snapshot</p>
-        <div className="space-y-1">
-          <h2 className="text-5xl font-black tracking-tighter leading-tight">
-            ${snapshot.netWorth.toLocaleString()}
-          </h2>
-          <div className="inline-flex items-center gap-2 bg-steady-success/10 text-steady-success px-3 py-1 rounded-full">
-            <iconify-icon icon="solar:round-alt-arrow-up-bold-duotone" width="16"></iconify-icon>
-            <span className="text-xs font-black tracking-wider uppercase">
-              +${snapshot.monthlyChange} this month
-            </span>
+      {/* Snapshot Hero - Clean Minimal Style */}
+      <div className="bg-steady-charcoal text-white p-6 rounded-3xl relative overflow-hidden">
+        <div className="flex items-center justify-between mb-6">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-50">Net Worth</p>
+          <div className="flex items-center gap-1.5 bg-steady-success/20 text-steady-success px-2.5 py-1 rounded-full">
+            <iconify-icon icon="solar:arrow-up-bold" width="12"></iconify-icon>
+            <span className="text-[10px] font-bold">+${snapshot.monthlyChange.toLocaleString()}</span>
           </div>
         </div>
+        <div className="flex items-baseline gap-1">
+          <span className="text-2xl font-medium text-white/40">$</span>
+          <span className="text-4xl font-black tracking-tight">{snapshot.netWorth.toLocaleString()}</span>
+        </div>
+        <p className="text-[10px] font-medium text-white/30 mt-2">Updated {snapshot.lastUpdated}</p>
       </div>
 
       {/* Scout's Pick - Prominent Feature Card */}
