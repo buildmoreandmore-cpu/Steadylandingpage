@@ -61,11 +61,62 @@ const Security: React.FC = () => {
             ))}
           </div>
 
+          {/* Policy Documents */}
+          <div className="space-y-6">
+            <h2 className="text-3xl font-black uppercase tracking-tight text-center">Security Policies</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <a href="/access-control" className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-steady-teal/30 hover:shadow-lg transition-all group">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-steady-teal/10 rounded-xl flex items-center justify-center text-steady-teal">
+                    <iconify-icon icon="solar:shield-keyhole-bold-duotone" width="24"></iconify-icon>
+                  </div>
+                  <div>
+                    <h3 className="font-black uppercase tracking-tight group-hover:text-steady-teal transition-colors">Access Control Policy</h3>
+                    <p className="text-sm text-gray-500">How we manage access to systems and data</p>
+                  </div>
+                </div>
+              </a>
+              <a href="/data-retention" className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-steady-teal/30 hover:shadow-lg transition-all group">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-steady-teal/10 rounded-xl flex items-center justify-center text-steady-teal">
+                    <iconify-icon icon="solar:trash-bin-trash-bold-duotone" width="24"></iconify-icon>
+                  </div>
+                  <div>
+                    <h3 className="font-black uppercase tracking-tight group-hover:text-steady-teal transition-colors">Data Retention Policy</h3>
+                    <p className="text-sm text-gray-500">How long we keep data and disposal procedures</p>
+                  </div>
+                </div>
+              </a>
+              <a href="/privacy" className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-steady-teal/30 hover:shadow-lg transition-all group">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-steady-teal/10 rounded-xl flex items-center justify-center text-steady-teal">
+                    <iconify-icon icon="solar:lock-bold-duotone" width="24"></iconify-icon>
+                  </div>
+                  <div>
+                    <h3 className="font-black uppercase tracking-tight group-hover:text-steady-teal transition-colors">Privacy Policy</h3>
+                    <p className="text-sm text-gray-500">How we collect, use, and protect your data</p>
+                  </div>
+                </div>
+              </a>
+              <a href="/terms" className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-steady-teal/30 hover:shadow-lg transition-all group">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-steady-teal/10 rounded-xl flex items-center justify-center text-steady-teal">
+                    <iconify-icon icon="solar:document-text-bold-duotone" width="24"></iconify-icon>
+                  </div>
+                  <div>
+                    <h3 className="font-black uppercase tracking-tight group-hover:text-steady-teal transition-colors">Terms of Service</h3>
+                    <p className="text-sm text-gray-500">Terms and conditions for using Steady</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
           {/* Trust Banner */}
           <div className="bg-steady-charcoal rounded-3xl p-12 text-center space-y-6">
             <iconify-icon icon="solar:verified-check-bold" width="48" className="text-steady-teal"></iconify-icon>
             <h2 className="text-3xl font-black text-white uppercase tracking-tight">Questions about security?</h2>
-            <p className="text-gray-400 font-medium">Reach out to our security team at security@steady.app</p>
+            <p className="text-gray-400 font-medium">Reach out to our security team at <a href="mailto:buildmoreandmore@gmail.com" className="text-steady-teal hover:underline">buildmoreandmore@gmail.com</a></p>
           </div>
         </div>
       </div>

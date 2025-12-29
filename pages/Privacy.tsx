@@ -33,6 +33,22 @@ const Privacy: React.FC = () => {
                 <p className="text-gray-600 leading-relaxed">
                   <strong>Automatically collected:</strong> Device information, usage analytics, crash reports to improve app stability.
                 </p>
+                <p className="text-gray-600 leading-relaxed">
+                  <strong>Financial data via Plaid:</strong> When you choose to link your bank accounts, we use Plaid Inc. to securely connect to your financial institutions. Plaid collects and shares with us your account balances, transaction history, and account identification information. You authorize this data sharing when you connect your accounts through Plaid Link.
+                </p>
+              </section>
+
+              <section className="space-y-4">
+                <h2 className="text-2xl font-black uppercase tracking-tight">Third-Party Services (Plaid)</h2>
+                <p className="text-gray-600 leading-relaxed">
+                  We use Plaid to connect your bank accounts. By using our account linking feature, you agree to Plaid&apos;s privacy policy available at <a href="https://plaid.com/legal/#end-user-privacy-policy" className="text-steady-teal underline">plaid.com/legal</a>. Plaid&apos;s services are subject to their terms and conditions.
+                </p>
+                <p className="text-gray-600 leading-relaxed">
+                  <strong>What Plaid accesses:</strong> Account balances, transaction history (up to 24 months), account and routing numbers for verification, and account holder information.
+                </p>
+                <p className="text-gray-600 leading-relaxed">
+                  <strong>You can disconnect at any time:</strong> You may revoke Plaid&apos;s access to your accounts through the app settings or by contacting us directly.
+                </p>
               </section>
 
               <section className="space-y-4">
@@ -68,9 +84,16 @@ const Privacy: React.FC = () => {
               </section>
 
               <section className="space-y-4">
+                <h2 className="text-2xl font-black uppercase tracking-tight">Household Sharing</h2>
+                <p className="text-gray-600 leading-relaxed">
+                  If you choose to share your financial data with a partner or family member through our Household feature, your linked account data, transactions, and balances will be visible to invited members. You control who has access and can revoke sharing at any time.
+                </p>
+              </section>
+
+              <section className="space-y-4">
                 <h2 className="text-2xl font-black uppercase tracking-tight">Contact Us</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  If you have questions about this Privacy Policy, please contact us at privacy@steady.app
+                  If you have questions about this Privacy Policy, please contact us at <a href="mailto:buildmoreandmore@gmail.com" className="text-steady-teal underline">buildmoreandmore@gmail.com</a>
                 </p>
               </section>
             </div>
