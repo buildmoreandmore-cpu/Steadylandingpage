@@ -65,6 +65,17 @@ const Security: React.FC = () => {
           <div className="space-y-6">
             <h2 className="text-3xl font-black uppercase tracking-tight text-center">Security Policies</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <a href="/mfa" className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-steady-teal/30 hover:shadow-lg transition-all group">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-steady-teal/10 rounded-xl flex items-center justify-center text-steady-teal">
+                    <iconify-icon icon="solar:face-scan-circle-bold-duotone" width="24"></iconify-icon>
+                  </div>
+                  <div>
+                    <h3 className="font-black uppercase tracking-tight group-hover:text-steady-teal transition-colors">MFA Implementation</h3>
+                    <p className="text-sm text-gray-500">Multi-factor authentication for consumer access</p>
+                  </div>
+                </div>
+              </a>
               <a href="/access-control" className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-steady-teal/30 hover:shadow-lg transition-all group">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-steady-teal/10 rounded-xl flex items-center justify-center text-steady-teal">
@@ -98,7 +109,7 @@ const Security: React.FC = () => {
                   </div>
                 </div>
               </a>
-              <a href="/terms" className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-steady-teal/30 hover:shadow-lg transition-all group">
+              <a href="/terms" className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-steady-teal/30 hover:shadow-lg transition-all group md:col-span-2">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-steady-teal/10 rounded-xl flex items-center justify-center text-steady-teal">
                     <iconify-icon icon="solar:document-text-bold-duotone" width="24"></iconify-icon>

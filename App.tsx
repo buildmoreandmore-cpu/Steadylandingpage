@@ -15,6 +15,7 @@ import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import AccessControl from './pages/AccessControl';
 import DataRetention from './pages/DataRetention';
+import MFA from './pages/MFA';
 import Terms from './pages/Terms';
 import CookiePolicy from './pages/CookiePolicy';
 import Licenses from './pages/Licenses';
@@ -624,6 +625,7 @@ const App: React.FC = () => {
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/access-control" element={<AccessControl />} />
       <Route path="/data-retention" element={<DataRetention />} />
+      <Route path="/mfa" element={<MFA />} />
       <Route path="/terms" element={<Terms />} />
       <Route path="/cookie-policy" element={<CookiePolicy />} />
       <Route path="/licenses" element={<Licenses />} />
