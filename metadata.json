@@ -1,0 +1,7 @@
+{
+  "name": "Steady",
+  "description": "A money app for people who want to feel in control. Steady doesn't just show you where your money went; it helps you decide where it should go and automates the rest with Scout, your AI copilot.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
