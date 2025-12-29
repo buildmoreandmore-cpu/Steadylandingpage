@@ -61,6 +61,7 @@ const SignupModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpe
 const LandingPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'personal' | 'business'>('personal');
   const [isSignupOpen, setIsSignupOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -102,10 +103,22 @@ const LandingPage: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="flex items-center gap-6">
-            <button onClick={() => setIsSignupOpen(true)} className="bg-steady-teal text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-steady-teal/20 hover:scale-105 transition-all">Join Waitlist</button>
+          <div className="flex items-center gap-4">
+            <button onClick={() => setIsSignupOpen(true)} className="hidden sm:block bg-steady-teal text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-steady-teal/20 hover:scale-105 transition-all">Join Waitlist</button>
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden w-10 h-10 flex items-center justify-center text-steady-charcoal">
+              <iconify-icon icon={isMobileMenuOpen ? "solar:close-circle-bold" : "solar:hamburger-menu-bold"} width="24"></iconify-icon>
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-6 space-y-4">
+            <button onClick={() => { scrollTo('features'); setIsMobileMenuOpen(false); }} className="block w-full text-left text-sm font-black uppercase tracking-widest text-gray-600 py-3">Features</button>
+            <button onClick={() => { scrollTo('scout'); setIsMobileMenuOpen(false); }} className="block w-full text-left text-sm font-black uppercase tracking-widest text-gray-600 py-3">Scout</button>
+            <button onClick={() => { setIsSignupOpen(true); setIsMobileMenuOpen(false); }} className="w-full bg-steady-teal text-white py-4 rounded-2xl font-black text-xs uppercase tracking-[0.2em] mt-4">Join Waitlist</button>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -127,7 +140,7 @@ const LandingPage: React.FC = () => {
             </button>
           </div>
           
-          <h1 className="text-[14vw] md:text-[8.5vw] font-black uppercase leading-[0.85] tracking-tighter animate-in slide-in-from-bottom-12 duration-1000">
+          <h1 className="text-[11vw] sm:text-[10vw] md:text-[8.5vw] font-black uppercase leading-[0.85] tracking-tighter animate-in slide-in-from-bottom-12 duration-1000">
             {activeTab === 'personal' ? (
               <>Money for the<br />Control Freaks</>
             ) : (
@@ -142,9 +155,9 @@ const LandingPage: React.FC = () => {
               : "Focus on your craft. Scout automates your finances."}
           </p>
 
-          <div className="flex flex-col md:flex-row justify-center items-center gap-4 pt-4">
-            <button onClick={() => setIsSignupOpen(true)} className="w-full md:w-auto bg-steady-teal text-white px-14 py-7 rounded-[2rem] font-black text-sm uppercase tracking-[0.2em] shadow-2xl shadow-steady-teal/30 hover:scale-105 transition-all">Join Waitlist</button>
-            <button onClick={() => scrollTo('features')} className="w-full md:w-auto bg-white text-steady-charcoal px-14 py-7 rounded-[2rem] font-black text-sm uppercase tracking-[0.2em] border border-gray-100 hover:bg-gray-50">See Features</button>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 pt-4">
+            <button onClick={() => setIsSignupOpen(true)} className="w-full sm:w-auto bg-steady-teal text-white px-8 sm:px-14 py-5 sm:py-7 rounded-2xl sm:rounded-[2rem] font-black text-xs sm:text-sm uppercase tracking-[0.2em] shadow-2xl shadow-steady-teal/30 hover:scale-105 transition-all">Join Waitlist</button>
+            <button onClick={() => scrollTo('features')} className="w-full sm:w-auto bg-white text-steady-charcoal px-8 sm:px-14 py-5 sm:py-7 rounded-2xl sm:rounded-[2rem] font-black text-xs sm:text-sm uppercase tracking-[0.2em] border border-gray-100 hover:bg-gray-50">See Features</button>
           </div>
         </div>
       </section>
@@ -175,8 +188,8 @@ const LandingPage: React.FC = () => {
           </div>
 
           <div className="perspective-1000 lg:w-1/2 flex justify-center">
-            <div className="relative rotate-y-12 transition-transform duration-700 hover:rotate-0 group">
-              <div className="w-[360px] h-[760px] bg-steady-bg rounded-[4rem] border-[12px] border-steady-charcoal shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] overflow-hidden relative z-10 transition-shadow group-hover:shadow-[0_60px_120px_-20px_rgba(0,0,0,0.6)]">
+            <div className="relative lg:rotate-y-12 transition-transform duration-700 hover:rotate-0 group">
+              <div className="w-[280px] sm:w-[320px] md:w-[360px] h-[580px] sm:h-[660px] md:h-[760px] bg-steady-bg rounded-[2.5rem] sm:rounded-[3rem] md:rounded-[4rem] border-[8px] sm:border-[10px] md:border-[12px] border-steady-charcoal shadow-[0_30px_60px_-20px_rgba(0,0,0,0.4)] md:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] overflow-hidden relative z-10 transition-shadow group-hover:shadow-[0_60px_120px_-20px_rgba(0,0,0,0.6)]">
                  <div className="h-10 bg-steady-bg flex justify-center items-end pb-1">
                     <div className="w-32 h-6 bg-steady-charcoal rounded-b-3xl"></div>
                  </div>
@@ -473,43 +486,43 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* OVERHAULED FOOTER SECTION */}
-      <footer className="bg-white pt-32 pb-16 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 space-y-32">
-          
+      <footer className="bg-white pt-16 sm:pt-32 pb-16 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-16 sm:space-y-32">
+
           {/* FINAL CTA BLOCK (WAITLIST) */}
-          <div className="bg-steady-charcoal rounded-[4rem] p-16 md:p-24 text-center space-y-12 shadow-2xl relative overflow-hidden">
+          <div className="bg-steady-charcoal rounded-3xl sm:rounded-[4rem] p-8 sm:p-16 md:p-24 text-center space-y-8 sm:space-y-12 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-steady-teal/10 rounded-full blur-[100px] -mr-48 -mt-48"></div>
             <div className="space-y-4 relative z-10">
-              <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-none">READY TO TAKE<br/>CONTROL?</h2>
-              <p className="text-gray-400 text-lg md:text-xl font-medium tracking-wide">Decide once. Automate forever.</p>
+              <h2 className="text-3xl sm:text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-none">READY TO TAKE<br/>CONTROL?</h2>
+              <p className="text-gray-400 text-base sm:text-lg md:text-xl font-medium tracking-wide">Decide once. Automate forever.</p>
             </div>
-            
-            <div className="max-w-xl mx-auto flex flex-col md:flex-row gap-4 relative z-10">
-              <input 
-                type="email" 
-                placeholder="EMAIL ADDRESS" 
-                className="flex-1 bg-white/10 border-2 border-white/10 focus:border-steady-teal px-8 py-5 rounded-3xl font-black text-xs tracking-widest text-white outline-none transition-all placeholder:text-white/30" 
+
+            <div className="max-w-xl mx-auto flex flex-col gap-3 sm:gap-4 relative z-10">
+              <input
+                type="email"
+                placeholder="EMAIL ADDRESS"
+                className="w-full bg-white/10 border-2 border-white/10 focus:border-steady-teal px-6 sm:px-8 py-4 sm:py-5 rounded-2xl sm:rounded-3xl font-black text-xs tracking-widest text-white outline-none transition-all placeholder:text-white/30"
               />
-              <button className="bg-steady-teal text-white px-10 py-5 rounded-3xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-steady-teal/20 hover:scale-[1.05] transition-all">Get Early Access</button>
+              <button className="w-full sm:w-auto bg-steady-teal text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl sm:rounded-3xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-steady-teal/20 hover:scale-[1.05] transition-all">Get Early Access</button>
             </div>
-            
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 relative z-10">
+
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/40 relative z-10">
               Join 2,000+ control freaks on the waitlist.
             </p>
           </div>
 
           {/* MAIN FOOTER LINKS */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-20">
-            <div className="space-y-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 md:gap-20">
+            <div className="col-span-2 md:col-span-1 space-y-6 sm:space-y-10">
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <img src="/logo.png" alt="Steady" className="h-12 w-auto rounded-xl" />
-                  <span className="text-3xl font-black uppercase tracking-tighter text-steady-charcoal">Steady</span>
+                  <img src="/logo.png" alt="Steady" className="h-10 sm:h-12 w-auto rounded-xl" />
+                  <span className="text-2xl sm:text-3xl font-black uppercase tracking-tighter text-steady-charcoal">Steady</span>
                 </div>
-                <p className="text-sm text-gray-400 font-bold uppercase tracking-widest leading-relaxed">Money for the Control Freaks.</p>
+                <p className="text-xs sm:text-sm text-gray-400 font-bold uppercase tracking-widest leading-relaxed">Money for the Control Freaks.</p>
               </div>
-              
-              <div className="flex gap-6">
+
+              <div className="flex gap-4 sm:gap-6">
                 {[
                   { icon: 'ri:twitter-x-fill', link: '#' },
                   { icon: 'ri:linkedin-box-fill', link: '#' },
@@ -522,50 +535,50 @@ const LandingPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="space-y-8">
-              <h4 className="text-xs font-black uppercase tracking-[0.3em] text-steady-charcoal">Product</h4>
-              <div className="flex flex-col gap-5">
-                <button onClick={() => scrollTo('features')} className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Features</button>
-                <button onClick={() => scrollTo('scout')} className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Scout</button>
-                <Link to="/security" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Security</Link>
+            <div className="space-y-4 sm:space-y-8">
+              <h4 className="text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-steady-charcoal">Product</h4>
+              <div className="flex flex-col gap-3 sm:gap-5">
+                <button onClick={() => scrollTo('features')} className="text-xs sm:text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Features</button>
+                <button onClick={() => scrollTo('scout')} className="text-xs sm:text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Scout</button>
+                <Link to="/security" className="text-xs sm:text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Security</Link>
               </div>
             </div>
 
-            <div className="space-y-8">
-              <h4 className="text-xs font-black uppercase tracking-[0.3em] text-steady-charcoal">Company</h4>
-              <div className="flex flex-col gap-5">
-                <Link to="/about" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">About</Link>
-                <Link to="/careers" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Careers</Link>
-                <Link to="/news" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">News</Link>
-                <Link to="/contact" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Contact</Link>
+            <div className="space-y-4 sm:space-y-8">
+              <h4 className="text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-steady-charcoal">Company</h4>
+              <div className="flex flex-col gap-3 sm:gap-5">
+                <Link to="/about" className="text-xs sm:text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">About</Link>
+                <Link to="/careers" className="text-xs sm:text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Careers</Link>
+                <Link to="/news" className="text-xs sm:text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">News</Link>
+                <Link to="/contact" className="text-xs sm:text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Contact</Link>
               </div>
             </div>
 
-            <div className="space-y-8">
-              <h4 className="text-xs font-black uppercase tracking-[0.3em] text-steady-charcoal">Legal</h4>
-              <div className="flex flex-col gap-5">
-                <Link to="/privacy" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Privacy</Link>
-                <Link to="/terms" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Terms</Link>
-                <Link to="/cookie-policy" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Cookie Policy</Link>
-                <Link to="/licenses" className="text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Licenses</Link>
+            <div className="space-y-4 sm:space-y-8">
+              <h4 className="text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-steady-charcoal">Legal</h4>
+              <div className="flex flex-col gap-3 sm:gap-5">
+                <Link to="/privacy" className="text-xs sm:text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Privacy</Link>
+                <Link to="/terms" className="text-xs sm:text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Terms</Link>
+                <Link to="/cookie-policy" className="text-xs sm:text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Cookies</Link>
+                <Link to="/licenses" className="text-xs sm:text-sm text-gray-400 font-bold uppercase tracking-widest hover:text-steady-teal text-left transition-colors">Licenses</Link>
               </div>
             </div>
           </div>
 
           {/* BOTTOM COPYRIGHT & TRUST */}
-          <div className="pt-12 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-8">
-             <p className="text-[10px] text-gray-300 font-black uppercase tracking-[0.2em]">
+          <div className="pt-8 sm:pt-12 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8">
+             <p className="text-[10px] text-gray-300 font-black uppercase tracking-[0.15em] sm:tracking-[0.2em]">
                © 2024 Steady Money Inc.
              </p>
-             
-             <div className="flex items-center gap-12">
+
+             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-12">
                <div className="flex items-center gap-2 text-gray-400">
-                 <iconify-icon icon="solar:lock-password-bold" width="18" className="text-steady-teal"></iconify-icon>
-                 <span className="text-[10px] font-black uppercase tracking-widest">Bank-level encryption</span>
+                 <iconify-icon icon="solar:lock-password-bold" width="16" className="text-steady-teal"></iconify-icon>
+                 <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider sm:tracking-widest">Bank-level encryption</span>
                </div>
                <div className="flex items-center gap-2 text-gray-400">
-                 <iconify-icon icon="solar:shield-check-bold" width="18" className="text-steady-teal"></iconify-icon>
-                 <span className="text-[10px] font-black uppercase tracking-widest">Your data is never sold</span>
+                 <iconify-icon icon="solar:shield-check-bold" width="16" className="text-steady-teal"></iconify-icon>
+                 <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider sm:tracking-widest">Your data is never sold</span>
                </div>
              </div>
           </div>
